@@ -1,0 +1,55 @@
+{
+  "accuracy": 0.9111111111111111,
+  "f1_macro": 0.9116743206977844,
+  "labels": [
+    "bottle",
+    "banana",
+    "book"
+  ],
+  "confusion_expected_by_predicted": [
+    [
+      14,
+      0,
+      1
+    ],
+    [
+      1,
+      13,
+      1
+    ],
+    [
+      1,
+      0,
+      14
+    ]
+  ],
+  "per_class": {
+    "bottle": {
+      "precision": 0.875,
+      "recall": 0.9333333373069763,
+      "f1": 0.9032257795333862,
+      "support": 15
+    },
+    "banana": {
+      "precision": 1.0,
+      "recall": 0.8666666746139526,
+      "f1": 0.9285714030265808,
+      "support": 15
+    },
+    "book": {
+      "precision": 0.875,
+      "recall": 0.9333333373069763,
+      "f1": 0.9032257795333862,
+      "support": 15
+    }
+  },
+  "delta_f1_macro_ptq_minus_fp32": 0.0204716523488363,
+  "calibration_samples": 30,
+  "tpc": "4.0",
+  "versions": {
+    "model-compression-toolkit": "2.5.1",
+    "edge-mdt-tpc": "1.3.0",
+    "mct-quantizers": "1.6.0",
+    "onnxruntime": "1.21.1"
+  }
+}

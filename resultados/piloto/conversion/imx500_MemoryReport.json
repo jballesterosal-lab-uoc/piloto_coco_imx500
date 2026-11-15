@@ -1,0 +1,22 @@
+{
+  "Memory Report": {
+    "Name": "imx500",
+    "Runtime Memory Physical Size": "841.09KB",
+    "Model Memory Physical Size": "2.29MB",
+    "Reserved Memory": "1.00KB",
+    "Memory Usage": "3.11MB",
+    "Total Memory Available On Chip": "8.00MB",
+    "Memory Utilization": "39%",
+    "Fit In Chip": true,
+    "Input Persistent": true,
+    "Networks": [
+      {
+        "Hash": "imx500",
+        "Name": "imx500",
+        "Runtime Memory Physical Size": "841.09KB",
+        "Model Memory Physical Size": "2.29MB",
+        "Input Persistence Cost": "79.00KB"
+      }
+    ]
+  }
+}

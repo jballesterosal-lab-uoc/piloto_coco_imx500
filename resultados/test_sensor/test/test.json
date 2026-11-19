@@ -1,0 +1,1567 @@
+{
+  "labels": [
+    "bottle",
+    "banana",
+    "book"
+  ],
+  "manifest_sha256": "64a14022496fa14faea3c13ff87a03bd040c6882f7069fdbe6abf4a764a382b5",
+  "input_shape_chw": [
+    3,
+    160,
+    160
+  ],
+  "input_format": "RGB",
+  "input_dtype": "uint8",
+  "input_scale": 0.00390625,
+  "input_shift": 0,
+  "packer_sha256": "5836d051945ff26350852ef356b7dba158917994737cc67d6cfdfe67696a9ad7",
+  "fp32_sha256": "376da6e1987f0edf16696374769c214d82378676a4a8fd6aa7598fa5f7d67235",
+  "onnx_sha256": "abe2d409df54133565537c38267776730601ac0ce1256f5b4d86d405ae612734",
+  "versions": {
+    "torch": "2.5.1+cpu",
+    "torchvision": "0.20.1+cpu",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.21.1",
+    "mct-quantizers": "1.6.0"
+  },
+  "reference_metrics": {
+    "fp32": {
+      "sample_count": 45,
+      "accuracy": 0.8888888888888888,
+      "f1_macro": 0.891202667064736,
+      "labels": [
+        "bottle",
+        "banana",
+        "book"
+      ],
+      "confusion_expected_by_predicted": [
+        [
+          13,
+          0,
+          2
+        ],
+        [
+          0,
+          13,
+          2
+        ],
+        [
+          1,
+          0,
+          14
+        ]
+      ],
+      "per_class": {
+        "bottle": {
+          "precision": 0.9285714285714286,
+          "recall": 0.8666666666666667,
+          "f1": 0.896551724137931,
+          "support": 15
+        },
+        "banana": {
+          "precision": 1.0,
+          "recall": 0.8666666666666667,
+          "f1": 0.9285714285714286,
+          "support": 15
+        },
+        "book": {
+          "precision": 0.7777777777777778,
+          "recall": 0.9333333333333333,
+          "f1": 0.8484848484848485,
+          "support": 15
+        }
+      }
+    },
+    "onnx": {
+      "sample_count": 45,
+      "accuracy": 0.9111111111111111,
+      "f1_macro": 0.9116743471582182,
+      "labels": [
+        "bottle",
+        "banana",
+        "book"
+      ],
+      "confusion_expected_by_predicted": [
+        [
+          14,
+          0,
+          1
+        ],
+        [
+          1,
+          13,
+          1
+        ],
+        [
+          1,
+          0,
+          14
+        ]
+      ],
+      "per_class": {
+        "bottle": {
+          "precision": 0.875,
+          "recall": 0.9333333333333333,
+          "f1": 0.9032258064516129,
+          "support": 15
+        },
+        "banana": {
+          "precision": 1.0,
+          "recall": 0.8666666666666667,
+          "f1": 0.9285714285714286,
+          "support": 15
+        },
+        "book": {
+          "precision": 0.875,
+          "recall": 0.9333333333333333,
+          "f1": 0.9032258064516129,
+          "support": 15
+        }
+      }
+    },
+    "onnx_injected_input": {
+      "sample_count": 45,
+      "accuracy": 0.9111111111111111,
+      "f1_macro": 0.9116743471582182,
+      "labels": [
+        "bottle",
+        "banana",
+        "book"
+      ],
+      "confusion_expected_by_predicted": [
+        [
+          14,
+          0,
+          1
+        ],
+        [
+          1,
+          13,
+          1
+        ],
+        [
+          1,
+          0,
+          14
+        ]
+      ],
+      "per_class": {
+        "bottle": {
+          "precision": 0.875,
+          "recall": 0.9333333333333333,
+          "f1": 0.9032258064516129,
+          "support": 15
+        },
+        "banana": {
+          "precision": 1.0,
+          "recall": 0.8666666666666667,
+          "f1": 0.9285714285714286,
+          "support": 15
+        },
+        "book": {
+          "precision": 0.875,
+          "recall": 0.9333333333333333,
+          "f1": 0.9032258064516129,
+          "support": 15
+        }
+      }
+    }
+  },
+  "samples": [
+    {
+      "image_id": 293625,
+      "annotation_id": 1483987,
+      "expected_index": 0,
+      "tensor_file": "000000293625.bin",
+      "tensor_sha256": "4ee7db739cef2d58a2f06f91aae9553d8fb059e2d2da16d728f087428d9878ae",
+      "fp32": {
+        "logits": [
+          1.6305423974990845,
+          -3.3794972896575928,
+          -1.5999516248703003
+        ],
+        "predicted_index": 0
+      },
+      "onnx": {
+        "logits": [
+          1.75,
+          -2.875,
+          -2.0
+        ],
+        "predicted_index": 0
+      },
+      "onnx_injected_input": {
+        "logits": [
+          1.75,
+          -2.875,
+          -2.0
+        ],
+        "predicted_index": 0
+      }
+    },
+    {
+      "image_id": 136600,
+      "annotation_id": 1865979,
+      "expected_index": 0,
+      "tensor_file": "000000136600.bin",
+      "tensor_sha256": "853f205a448c0c91e6827312b26a350e25074c50a475694ac05eb939d03097cd",
+      "fp32": {
+        "logits": [
+          5.665592670440674,
+          -4.911272048950195,
+          -4.085289478302002
+        ],
+        "predicted_index": 0
+      },
+      "onnx": {
+        "logits": [
+          6.25,
+          -5.125,
+          -4.0
+        ],
+        "predicted_index": 0
+      },
+      "onnx_injected_input": {
+        "logits": [
+          6.25,
+          -5.125,
+          -4.0
+        ],
+        "predicted_index": 0
+      }
+    },
+    {
+      "image_id": 50811,
+      "annotation_id": 89064,
+      "expected_index": 0,
+      "tensor_file": "000000050811.bin",
+      "tensor_sha256": "471e291b80cfcc686421715dab487d37262a6dd6e0b538b1da3dc983ba42128b",
+      "fp32": {
+        "logits": [
+          2.7873592376708984,
+          -4.323597431182861,
+          -2.248722553253174
+        ],
+        "predicted_index": 0
+      },
+      "onnx": {
+        "logits": [
+          2.75,
+          -4.25,
+          -2.125
+        ],
+        "predicted_index": 0
+      },
+      "onnx_injected_input": {
+        "logits": [
+          2.75,
+          -4.25,
+          -2.125
+        ],
+        "predicted_index": 0
+      }
+    },
+    {
+      "image_id": 322163,
+      "annotation_id": 371516,
+      "expected_index": 0,
+      "tensor_file": "000000322163.bin",
+      "tensor_sha256": "d2a5fb8f18fb64e0554081f233890b129d323a0f571f32935e6389c90ae8c002",
+      "fp32": {
+        "logits": [
+          4.031306266784668,
+          -5.178612232208252,
+          -3.4566867351531982
+        ],
+        "predicted_index": 0
+      },
+      "onnx": {
+        "logits": [
+          4.0,
+          -5.0,
+          -3.5
+        ],
+        "predicted_index": 0
+      },
+      "onnx_injected_input": {
+        "logits": [
+          4.0,
+          -5.0,
+          -3.5
+        ],
+        "predicted_index": 0
+      }
+    },
+    {
+      "image_id": 554838,
+      "annotation_id": 1867939,
+      "expected_index": 0,
+      "tensor_file": "000000554838.bin",
+      "tensor_sha256": "90395705facca95174206e39ab0243122076faa202b0d5397731e14051abc350",
+      "fp32": {
+        "logits": [
+          -2.5992321968078613,
+          -1.680396556854248,
+          -1.5621494054794312
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -1.5,
+          -2.125,
+          -1.875
+        ],
+        "predicted_index": 0
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -1.5,
+          -2.125,
+          -1.875
+        ],
+        "predicted_index": 0
+      }
+    },
+    {
+      "image_id": 187249,
+      "annotation_id": 81703,
+      "expected_index": 0,
+      "tensor_file": "000000187249.bin",
+      "tensor_sha256": "c92775a1db73fede4a212e47a1efc1613d5f379046b7b5a7b3289acf497fc395",
+      "fp32": {
+        "logits": [
+          0.34336766600608826,
+          -3.1817026138305664,
+          -1.7089544534683228
+        ],
+        "predicted_index": 0
+      },
+      "onnx": {
+        "logits": [
+          0.75,
+          -3.375,
+          -1.5
+        ],
+        "predicted_index": 0
+      },
+      "onnx_injected_input": {
+        "logits": [
+          0.75,
+          -3.375,
+          -1.5
+        ],
+        "predicted_index": 0
+      }
+    },
+    {
+      "image_id": 293858,
+      "annotation_id": 85586,
+      "expected_index": 0,
+      "tensor_file": "000000293858.bin",
+      "tensor_sha256": "eded820c9296cba8a2dfa8a0cf11f8999703e6cfc0168222e29d0150f1528b20",
+      "fp32": {
+        "logits": [
+          0.48763594031333923,
+          -2.510984182357788,
+          -2.546720266342163
+        ],
+        "predicted_index": 0
+      },
+      "onnx": {
+        "logits": [
+          0.5,
+          -2.5,
+          -2.5
+        ],
+        "predicted_index": 0
+      },
+      "onnx_injected_input": {
+        "logits": [
+          0.5,
+          -2.5,
+          -2.5
+        ],
+        "predicted_index": 0
+      }
+    },
+    {
+      "image_id": 2685,
+      "annotation_id": 90393,
+      "expected_index": 0,
+      "tensor_file": "000000002685.bin",
+      "tensor_sha256": "d1c6b380f311e5f6cac443cea1aebae1745c6d5ee44c3590f095a516620e6ed6",
+      "fp32": {
+        "logits": [
+          -1.1261277198791504,
+          -1.3668121099472046,
+          -1.7126530408859253
+        ],
+        "predicted_index": 0
+      },
+      "onnx": {
+        "logits": [
+          -0.625,
+          -1.5,
+          -2.0
+        ],
+        "predicted_index": 0
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -0.625,
+          -1.5,
+          -2.0
+        ],
+        "predicted_index": 0
+      }
+    },
+    {
+      "image_id": 302760,
+      "annotation_id": 92010,
+      "expected_index": 0,
+      "tensor_file": "000000302760.bin",
+      "tensor_sha256": "f7af912462613aa2cd55062c97b7f4060c9871589c826cc6dda950b357139b24",
+      "fp32": {
+        "logits": [
+          5.539234638214111,
+          -4.022693157196045,
+          -5.079345226287842
+        ],
+        "predicted_index": 0
+      },
+      "onnx": {
+        "logits": [
+          5.5,
+          -3.625,
+          -5.25
+        ],
+        "predicted_index": 0
+      },
+      "onnx_injected_input": {
+        "logits": [
+          5.5,
+          -3.625,
+          -5.25
+        ],
+        "predicted_index": 0
+      }
+    },
+    {
+      "image_id": 397133,
+      "annotation_id": 82445,
+      "expected_index": 0,
+      "tensor_file": "000000397133.bin",
+      "tensor_sha256": "1ddf7b60a5508945ffd7f95ccca878b11379f7520fc2c04974f983f577c02b87",
+      "fp32": {
+        "logits": [
+          2.3841023445129395,
+          -4.621179103851318,
+          -2.111163377761841
+        ],
+        "predicted_index": 0
+      },
+      "onnx": {
+        "logits": [
+          2.875,
+          -4.25,
+          -2.875
+        ],
+        "predicted_index": 0
+      },
+      "onnx_injected_input": {
+        "logits": [
+          2.875,
+          -4.25,
+          -2.875
+        ],
+        "predicted_index": 0
+      }
+    },
+    {
+      "image_id": 488673,
+      "annotation_id": 370585,
+      "expected_index": 0,
+      "tensor_file": "000000488673.bin",
+      "tensor_sha256": "b3e24be796f0f9c4d126c16c9f192d76f4cd371ccfc0d96f211bd3bd7b484d86",
+      "fp32": {
+        "logits": [
+          2.517005681991577,
+          -3.396244764328003,
+          -3.1695363521575928
+        ],
+        "predicted_index": 0
+      },
+      "onnx": {
+        "logits": [
+          3.0,
+          -3.375,
+          -3.625
+        ],
+        "predicted_index": 0
+      },
+      "onnx_injected_input": {
+        "logits": [
+          3.0,
+          -3.375,
+          -3.625
+        ],
+        "predicted_index": 0
+      }
+    },
+    {
+      "image_id": 132587,
+      "annotation_id": 90247,
+      "expected_index": 0,
+      "tensor_file": "000000132587.bin",
+      "tensor_sha256": "d584f79026c8803fdf79ee8b8f2c37dcd4a59309e9c737dff10aa07bba774c51",
+      "fp32": {
+        "logits": [
+          4.722738742828369,
+          -3.620628595352173,
+          -4.580552577972412
+        ],
+        "predicted_index": 0
+      },
+      "onnx": {
+        "logits": [
+          5.5,
+          -3.875,
+          -4.875
+        ],
+        "predicted_index": 0
+      },
+      "onnx_injected_input": {
+        "logits": [
+          5.5,
+          -3.875,
+          -4.875
+        ],
+        "predicted_index": 0
+      }
+    },
+    {
+      "image_id": 228214,
+      "annotation_id": 80293,
+      "expected_index": 0,
+      "tensor_file": "000000228214.bin",
+      "tensor_sha256": "d26c3b9c9e9e97c1301e72b16a03b50f1834b0b0a55baa802e93aa3184ad31c0",
+      "fp32": {
+        "logits": [
+          0.725132167339325,
+          -1.6210683584213257,
+          -2.1456363201141357
+        ],
+        "predicted_index": 0
+      },
+      "onnx": {
+        "logits": [
+          0.625,
+          -1.625,
+          -2.25
+        ],
+        "predicted_index": 0
+      },
+      "onnx_injected_input": {
+        "logits": [
+          0.625,
+          -1.625,
+          -2.25
+        ],
+        "predicted_index": 0
+      }
+    },
+    {
+      "image_id": 387098,
+      "annotation_id": 80594,
+      "expected_index": 0,
+      "tensor_file": "000000387098.bin",
+      "tensor_sha256": "f7030865f83dd671ebcc3eeabf3fd9761155b7b1eea8a96aac8c2e5252d14d16",
+      "fp32": {
+        "logits": [
+          2.436610460281372,
+          -5.173194408416748,
+          -1.8991538286209106
+        ],
+        "predicted_index": 0
+      },
+      "onnx": {
+        "logits": [
+          2.625,
+          -4.75,
+          -2.125
+        ],
+        "predicted_index": 0
+      },
+      "onnx_injected_input": {
+        "logits": [
+          2.625,
+          -4.75,
+          -2.125
+        ],
+        "predicted_index": 0
+      }
+    },
+    {
+      "image_id": 117719,
+      "annotation_id": 1494627,
+      "expected_index": 0,
+      "tensor_file": "000000117719.bin",
+      "tensor_sha256": "9b71c27c1699fe7fd3a1fd46f286234400c5fecd2092182d2cc1334b0b277c08",
+      "fp32": {
+        "logits": [
+          -0.4110967218875885,
+          -4.099838733673096,
+          0.8356897234916687
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          0.125,
+          -4.25,
+          0.5
+        ],
+        "predicted_index": 2
+      },
+      "onnx_injected_input": {
+        "logits": [
+          0.125,
+          -4.25,
+          0.5
+        ],
+        "predicted_index": 2
+      }
+    },
+    {
+      "image_id": 158660,
+      "annotation_id": 1042488,
+      "expected_index": 1,
+      "tensor_file": "000000158660.bin",
+      "tensor_sha256": "71be0aa56b61cc02ce6bd2c97d652f58ad8f04979fc106411f89596010fb3665",
+      "fp32": {
+        "logits": [
+          -4.036474704742432,
+          1.7463845014572144,
+          -3.8600034713745117
+        ],
+        "predicted_index": 1
+      },
+      "onnx": {
+        "logits": [
+          -4.75,
+          2.5,
+          -4.25
+        ],
+        "predicted_index": 1
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -4.75,
+          2.5,
+          -4.25
+        ],
+        "predicted_index": 1
+      }
+    },
+    {
+      "image_id": 371472,
+      "annotation_id": 2186365,
+      "expected_index": 1,
+      "tensor_file": "000000371472.bin",
+      "tensor_sha256": "d579a7008a2a9398cdd7e77a634de29577f169195aa6d210f0092a544ab2944d",
+      "fp32": {
+        "logits": [
+          -10.709763526916504,
+          9.944156646728516,
+          -6.233634948730469
+        ],
+        "predicted_index": 1
+      },
+      "onnx": {
+        "logits": [
+          -10.375,
+          9.5,
+          -6.0
+        ],
+        "predicted_index": 1
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -10.375,
+          9.5,
+          -6.0
+        ],
+        "predicted_index": 1
+      }
+    },
+    {
+      "image_id": 499031,
+      "annotation_id": 1041428,
+      "expected_index": 1,
+      "tensor_file": "000000499031.bin",
+      "tensor_sha256": "92ba1df05b11df73604f658a7806507361ffc9613bd153ae09712c9a5a83d1e7",
+      "fp32": {
+        "logits": [
+          -5.311092376708984,
+          3.8217780590057373,
+          -2.136730432510376
+        ],
+        "predicted_index": 1
+      },
+      "onnx": {
+        "logits": [
+          -4.25,
+          3.125,
+          -1.75
+        ],
+        "predicted_index": 1
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -4.25,
+          3.125,
+          -1.75
+        ],
+        "predicted_index": 1
+      }
+    },
+    {
+      "image_id": 191761,
+      "annotation_id": 1043244,
+      "expected_index": 1,
+      "tensor_file": "000000191761.bin",
+      "tensor_sha256": "e493dbf81c6784de5bbb13a73413ecf97f2493ee0e81a874628f29ade8089e79",
+      "fp32": {
+        "logits": [
+          -5.241684436798096,
+          2.320002317428589,
+          -1.8261357545852661
+        ],
+        "predicted_index": 1
+      },
+      "onnx": {
+        "logits": [
+          -5.75,
+          2.875,
+          -2.25
+        ],
+        "predicted_index": 1
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -5.75,
+          2.875,
+          -2.25
+        ],
+        "predicted_index": 1
+      }
+    },
+    {
+      "image_id": 453708,
+      "annotation_id": 1045177,
+      "expected_index": 1,
+      "tensor_file": "000000453708.bin",
+      "tensor_sha256": "f3b4ca627320c5e92a748262c40a040756467d4d32a0f9f63ac209c55a995f75",
+      "fp32": {
+        "logits": [
+          -9.728537559509277,
+          9.054176330566406,
+          -7.071187973022461
+        ],
+        "predicted_index": 1
+      },
+      "onnx": {
+        "logits": [
+          -9.5,
+          9.25,
+          -7.125
+        ],
+        "predicted_index": 1
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -9.5,
+          9.25,
+          -7.125
+        ],
+        "predicted_index": 1
+      }
+    },
+    {
+      "image_id": 113589,
+      "annotation_id": 1043315,
+      "expected_index": 1,
+      "tensor_file": "000000113589.bin",
+      "tensor_sha256": "120706f19f85691eb326a337fc63e5b842d5f31686e53589e941dca420eff104",
+      "fp32": {
+        "logits": [
+          -4.581867218017578,
+          4.45913028717041,
+          -5.24882173538208
+        ],
+        "predicted_index": 1
+      },
+      "onnx": {
+        "logits": [
+          -3.75,
+          4.25,
+          -5.625
+        ],
+        "predicted_index": 1
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -3.75,
+          4.25,
+          -5.625
+        ],
+        "predicted_index": 1
+      }
+    },
+    {
+      "image_id": 480275,
+      "annotation_id": 1043417,
+      "expected_index": 1,
+      "tensor_file": "000000480275.bin",
+      "tensor_sha256": "356f16378c15e351487c3759892b25bdd86220068662f97f6d038abf2a7bd73b",
+      "fp32": {
+        "logits": [
+          -10.747559547424316,
+          10.757505416870117,
+          -8.42813491821289
+        ],
+        "predicted_index": 1
+      },
+      "onnx": {
+        "logits": [
+          -10.5,
+          10.5,
+          -8.25
+        ],
+        "predicted_index": 1
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -10.5,
+          10.5,
+          -8.25
+        ],
+        "predicted_index": 1
+      }
+    },
+    {
+      "image_id": 173008,
+      "annotation_id": 1541959,
+      "expected_index": 1,
+      "tensor_file": "000000173008.bin",
+      "tensor_sha256": "289becbb7be57c25f562b43b827bb4cdd4b71393468b3aac0497e34df5457731",
+      "fp32": {
+        "logits": [
+          -3.2779271602630615,
+          0.43479451537132263,
+          -0.9819122552871704
+        ],
+        "predicted_index": 1
+      },
+      "onnx": {
+        "logits": [
+          -3.25,
+          0.25,
+          -0.875
+        ],
+        "predicted_index": 1
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -3.25,
+          0.25,
+          -0.875
+        ],
+        "predicted_index": 1
+      }
+    },
+    {
+      "image_id": 465129,
+      "annotation_id": 1543084,
+      "expected_index": 1,
+      "tensor_file": "000000465129.bin",
+      "tensor_sha256": "e5484b0514e561c44b3661d53e012bfe3bb89b79d83cc7c4019f66a15952af26",
+      "fp32": {
+        "logits": [
+          -1.6049457788467407,
+          -0.5467907190322876,
+          -0.03446749225258827
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -0.375,
+          -0.875,
+          -0.5
+        ],
+        "predicted_index": 0
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -0.375,
+          -0.875,
+          -0.5
+        ],
+        "predicted_index": 0
+      }
+    },
+    {
+      "image_id": 227187,
+      "annotation_id": 1045250,
+      "expected_index": 1,
+      "tensor_file": "000000227187.bin",
+      "tensor_sha256": "d92aea23bd9ffe19cb63dee75d84739a9840c6463cdd8d69711a5de74b1a9b32",
+      "fp32": {
+        "logits": [
+          -6.76607608795166,
+          4.187407970428467,
+          -2.4280166625976562
+        ],
+        "predicted_index": 1
+      },
+      "onnx": {
+        "logits": [
+          -6.75,
+          4.125,
+          -2.375
+        ],
+        "predicted_index": 1
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -6.75,
+          4.125,
+          -2.375
+        ],
+        "predicted_index": 1
+      }
+    },
+    {
+      "image_id": 190853,
+      "annotation_id": 1044788,
+      "expected_index": 1,
+      "tensor_file": "000000190853.bin",
+      "tensor_sha256": "0cfc4499a89f341cc1e9a8a26609b67a0e0bc044c52f1041af2aa97c03a6e82b",
+      "fp32": {
+        "logits": [
+          -7.67197322845459,
+          5.163897514343262,
+          -3.109250068664551
+        ],
+        "predicted_index": 1
+      },
+      "onnx": {
+        "logits": [
+          -7.125,
+          4.75,
+          -2.75
+        ],
+        "predicted_index": 1
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -7.125,
+          4.75,
+          -2.75
+        ],
+        "predicted_index": 1
+      }
+    },
+    {
+      "image_id": 468925,
+      "annotation_id": 1045257,
+      "expected_index": 1,
+      "tensor_file": "000000468925.bin",
+      "tensor_sha256": "c8f5e1c60c57090fa7e01e69398a760eccec0cc18b1c4b0320f232533250f07e",
+      "fp32": {
+        "logits": [
+          -3.469113349914551,
+          -0.11144115775823593,
+          -0.268950492143631
+        ],
+        "predicted_index": 1
+      },
+      "onnx": {
+        "logits": [
+          -3.5,
+          0.125,
+          -0.375
+        ],
+        "predicted_index": 1
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -3.5,
+          0.125,
+          -0.375
+        ],
+        "predicted_index": 1
+      }
+    },
+    {
+      "image_id": 59598,
+      "annotation_id": 1041468,
+      "expected_index": 1,
+      "tensor_file": "000000059598.bin",
+      "tensor_sha256": "df18bc5f94cbabbfe920a84df06845b0d3a6258dc22fbb9eb540846b7a2d3c44",
+      "fp32": {
+        "logits": [
+          -7.659499645233154,
+          4.0275421142578125,
+          -2.1768767833709717
+        ],
+        "predicted_index": 1
+      },
+      "onnx": {
+        "logits": [
+          -7.625,
+          4.375,
+          -2.625
+        ],
+        "predicted_index": 1
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -7.625,
+          4.375,
+          -2.625
+        ],
+        "predicted_index": 1
+      }
+    },
+    {
+      "image_id": 293794,
+      "annotation_id": 2110125,
+      "expected_index": 1,
+      "tensor_file": "000000293794.bin",
+      "tensor_sha256": "7fd2394a53b16a73515106dc49b2bd29d59d60d927a539e4e84de1a627f6bcc5",
+      "fp32": {
+        "logits": [
+          -7.654019832611084,
+          6.428611755371094,
+          -3.6194088459014893
+        ],
+        "predicted_index": 1
+      },
+      "onnx": {
+        "logits": [
+          -7.625,
+          6.375,
+          -3.75
+        ],
+        "predicted_index": 1
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -7.625,
+          6.375,
+          -3.75
+        ],
+        "predicted_index": 1
+      }
+    },
+    {
+      "image_id": 17714,
+      "annotation_id": 1544267,
+      "expected_index": 1,
+      "tensor_file": "000000017714.bin",
+      "tensor_sha256": "4bfb4cfd71807bcf9e6fd7754bef37168771662f63b8000490b902f0b48650e8",
+      "fp32": {
+        "logits": [
+          -2.676117420196533,
+          0.22481949627399445,
+          0.7513821125030518
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -2.125,
+          0.25,
+          0.625
+        ],
+        "predicted_index": 2
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -2.125,
+          0.25,
+          0.625
+        ],
+        "predicted_index": 2
+      }
+    },
+    {
+      "image_id": 371699,
+      "annotation_id": 1989283,
+      "expected_index": 2,
+      "tensor_file": "000000371699.bin",
+      "tensor_sha256": "4be3958625ecdab9d6cbf879604a4277de85800cf65a47dded6532869e2fcb64",
+      "fp32": {
+        "logits": [
+          -1.945715069770813,
+          -4.570031642913818,
+          3.9159109592437744
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -1.875,
+          -4.125,
+          3.5
+        ],
+        "predicted_index": 2
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -1.875,
+          -4.125,
+          3.5
+        ],
+        "predicted_index": 2
+      }
+    },
+    {
+      "image_id": 278463,
+      "annotation_id": 1660396,
+      "expected_index": 2,
+      "tensor_file": "000000278463.bin",
+      "tensor_sha256": "b79f4d1b0903efd77288dd9ae8e00111297208ea275b12f069b3ef1b1b212369",
+      "fp32": {
+        "logits": [
+          -3.0402307510375977,
+          -3.38395094871521,
+          3.716890573501587
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -3.125,
+          -3.25,
+          3.375
+        ],
+        "predicted_index": 2
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -3.125,
+          -3.25,
+          3.375
+        ],
+        "predicted_index": 2
+      }
+    },
+    {
+      "image_id": 389315,
+      "annotation_id": 1652379,
+      "expected_index": 2,
+      "tensor_file": "000000389315.bin",
+      "tensor_sha256": "551cead911a7b42d546d3d1536af201da5f9f4cf9b6fc590897c14cb8b244dd1",
+      "fp32": {
+        "logits": [
+          -3.2663087844848633,
+          -2.3052754402160645,
+          2.7838144302368164
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -3.125,
+          -2.25,
+          2.75
+        ],
+        "predicted_index": 2
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -3.125,
+          -2.25,
+          2.75
+        ],
+        "predicted_index": 2
+      }
+    },
+    {
+      "image_id": 395701,
+      "annotation_id": 1650929,
+      "expected_index": 2,
+      "tensor_file": "000000395701.bin",
+      "tensor_sha256": "e5f2fc243a5735146b795285020209d593f31f4db796321572f824157158efa6",
+      "fp32": {
+        "logits": [
+          -3.450920581817627,
+          -4.6371564865112305,
+          4.544362545013428
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -3.0,
+          -4.375,
+          4.125
+        ],
+        "predicted_index": 2
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -3.0,
+          -4.375,
+          4.125
+        ],
+        "predicted_index": 2
+      }
+    },
+    {
+      "image_id": 302030,
+      "annotation_id": 1986366,
+      "expected_index": 2,
+      "tensor_file": "000000302030.bin",
+      "tensor_sha256": "80715254103da25c7a1e3a587ef94077a506fe76f22dd43119bfd1a1f1af454e",
+      "fp32": {
+        "logits": [
+          -3.07373309135437,
+          -4.004809856414795,
+          3.457697629928589
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -3.375,
+          -4.0,
+          3.75
+        ],
+        "predicted_index": 2
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -3.375,
+          -4.0,
+          3.75
+        ],
+        "predicted_index": 2
+      }
+    },
+    {
+      "image_id": 553664,
+      "annotation_id": 1138185,
+      "expected_index": 2,
+      "tensor_file": "000000553664.bin",
+      "tensor_sha256": "37e1755c067c6ac9b3e07bbe41f55e9fb7c7b88c8de5407ffdf0bf64263eb1d6",
+      "fp32": {
+        "logits": [
+          -2.0922422409057617,
+          -3.794412851333618,
+          0.07023903727531433
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -1.25,
+          -4.0,
+          -0.375
+        ],
+        "predicted_index": 2
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -1.25,
+          -4.0,
+          -0.375
+        ],
+        "predicted_index": 2
+      }
+    },
+    {
+      "image_id": 154431,
+      "annotation_id": 1660130,
+      "expected_index": 2,
+      "tensor_file": "000000154431.bin",
+      "tensor_sha256": "ad6debe3f350fb947494d527f8ff71b823421dbfdbe3ee2ee94a7a05c5b68f7c",
+      "fp32": {
+        "logits": [
+          -0.8296065330505371,
+          -3.270089864730835,
+          2.3187873363494873
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -0.5,
+          -2.875,
+          1.875
+        ],
+        "predicted_index": 2
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -0.5,
+          -2.875,
+          1.875
+        ],
+        "predicted_index": 2
+      }
+    },
+    {
+      "image_id": 632,
+      "annotation_id": 1987085,
+      "expected_index": 2,
+      "tensor_file": "000000000632.bin",
+      "tensor_sha256": "621dde49db3a8eac3f71b3f81a6fbf367f629d633e514e4ecad62b704a31b422",
+      "fp32": {
+        "logits": [
+          -2.24215030670166,
+          -3.4492499828338623,
+          2.6457326412200928
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -1.125,
+          -3.375,
+          2.0
+        ],
+        "predicted_index": 2
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -1.125,
+          -3.375,
+          2.0
+        ],
+        "predicted_index": 2
+      }
+    },
+    {
+      "image_id": 25603,
+      "annotation_id": 1144688,
+      "expected_index": 2,
+      "tensor_file": "000000025603.bin",
+      "tensor_sha256": "22a081ff93accac7602588f0e543098efe31ca68a087115d6dc0f60cc688863b",
+      "fp32": {
+        "logits": [
+          -3.2373948097229004,
+          -0.7337459325790405,
+          1.0607798099517822
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -2.75,
+          -0.625,
+          0.75
+        ],
+        "predicted_index": 2
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -2.75,
+          -0.625,
+          0.75
+        ],
+        "predicted_index": 2
+      }
+    },
+    {
+      "image_id": 129492,
+      "annotation_id": 1987681,
+      "expected_index": 2,
+      "tensor_file": "000000129492.bin",
+      "tensor_sha256": "b75ce11ff07ecb22887a67eb071d549e9d7d5f8240b24dbbecf5a1a03423728d",
+      "fp32": {
+        "logits": [
+          3.624302864074707,
+          -7.0985493659973145,
+          0.014738593250513077
+        ],
+        "predicted_index": 0
+      },
+      "onnx": {
+        "logits": [
+          3.5,
+          -6.625,
+          -0.125
+        ],
+        "predicted_index": 0
+      },
+      "onnx_injected_input": {
+        "logits": [
+          3.5,
+          -6.625,
+          -0.125
+        ],
+        "predicted_index": 0
+      }
+    },
+    {
+      "image_id": 189820,
+      "annotation_id": 2143624,
+      "expected_index": 2,
+      "tensor_file": "000000189820.bin",
+      "tensor_sha256": "a5059f774af53b9ac4b616d87ce4b9ca4d0cf95d632bfb3ff31ebd9d9c165653",
+      "fp32": {
+        "logits": [
+          -1.486380696296692,
+          -2.895822525024414,
+          2.0109946727752686
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -1.25,
+          -2.5,
+          1.375
+        ],
+        "predicted_index": 2
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -1.25,
+          -2.5,
+          1.375
+        ],
+        "predicted_index": 2
+      }
+    },
+    {
+      "image_id": 45229,
+      "annotation_id": 1650257,
+      "expected_index": 2,
+      "tensor_file": "000000045229.bin",
+      "tensor_sha256": "7a6d917955563a2c4dc3fb097fbb262d6cb8bddc9fb60a4cab523dd655c59b43",
+      "fp32": {
+        "logits": [
+          -0.039561573415994644,
+          -2.492588758468628,
+          0.7509050369262695
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -0.75,
+          -1.25,
+          0.375
+        ],
+        "predicted_index": 2
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -0.75,
+          -1.25,
+          0.375
+        ],
+        "predicted_index": 2
+      }
+    },
+    {
+      "image_id": 26564,
+      "annotation_id": 1141007,
+      "expected_index": 2,
+      "tensor_file": "000000026564.bin",
+      "tensor_sha256": "5396a9fe379c6a3fe30d9033fef173fcd4d6d66e9f0d200410a7cd2516043199",
+      "fp32": {
+        "logits": [
+          -5.143304347991943,
+          -4.8728132247924805,
+          5.570912837982178
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -5.25,
+          -4.25,
+          5.125
+        ],
+        "predicted_index": 2
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -5.25,
+          -4.25,
+          5.125
+        ],
+        "predicted_index": 2
+      }
+    },
+    {
+      "image_id": 123633,
+      "annotation_id": 1147202,
+      "expected_index": 2,
+      "tensor_file": "000000123633.bin",
+      "tensor_sha256": "853776c980068fd15c8dc4c4ea41157e54b79c1954d232f947f2c563fc780ca3",
+      "fp32": {
+        "logits": [
+          -2.332608222961426,
+          -3.9502270221710205,
+          2.9348056316375732
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -2.5,
+          -3.75,
+          3.0
+        ],
+        "predicted_index": 2
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -2.5,
+          -3.75,
+          3.0
+        ],
+        "predicted_index": 2
+      }
+    },
+    {
+      "image_id": 213445,
+      "annotation_id": 1650548,
+      "expected_index": 2,
+      "tensor_file": "000000213445.bin",
+      "tensor_sha256": "a2f288caa13fd662095ac5c85c298a3a6e6ef4604f450ce766a83bbb909ec43b",
+      "fp32": {
+        "logits": [
+          -4.118381500244141,
+          -0.6933856010437012,
+          0.6288179159164429
+        ],
+        "predicted_index": 2
+      },
+      "onnx": {
+        "logits": [
+          -3.75,
+          -0.625,
+          0.5
+        ],
+        "predicted_index": 2
+      },
+      "onnx_injected_input": {
+        "logits": [
+          -3.75,
+          -0.625,
+          0.5
+        ],
+        "predicted_index": 2
+      }
+    }
+  ]
+}

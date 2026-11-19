@@ -1,0 +1,4 @@
+mkdir -p camara
+imx500-package -i packerOut.zip -o camara -f input_format.json
+python3 probar_camara.py --model camara/network.rpk --labels labels.txt \
+  --expected bottle --output camara/bottle.json

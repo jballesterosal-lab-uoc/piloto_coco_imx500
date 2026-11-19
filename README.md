@@ -13,6 +13,8 @@ El checkpoint seleccionado corresponde a la época 5. La diferencia de F1 macro 
 
 Para ir directamente a la cámara, descarga el [ZIP de despliegue](resultados/piloto/despliegue_pi.zip) y sigue los pasos 3 y 4 en la Raspberry Pi. El ZIP contiene la salida del conversor que se empaqueta como `network.rpk` en la Pi.
 
+Para enviar al sensor las 45 imágenes del conjunto de prueba y comparar sus resultados con FP32 y ONNX, sigue la [guía de evaluación mediante inyección](PRUEBA_SENSOR.md). El [paquete de test](resultados/test_sensor/prueba_test_imx500.zip) incluye los recortes, los tensores, las etiquetas y las referencias del ordenador.
+
 ## Datos y protocolo
 
 La tarea asigna una etiqueta (`bottle`, `banana` o `book`, en ese orden) a un recorte RGB. El recorte se obtiene de las cajas de [COCO 2017](https://cocodataset.org/#download). Se descartan las cajas `iscrowd` y las que, tras recortarlas a los bordes, miden menos de 24 píxeles en algún lado o no caben en un cuadrado dentro de la imagen. Por imagen se conserva la caja válida de mayor área entre las clases seleccionadas. El recorte cuadrado añade aproximadamente un 10 % al lado dominante cuando el tamaño de la foto lo permite. El modelo recibe el recorte redimensionado a 160 × 160 y valores RGB de 0 a 1. En cámara, el objeto se coloca dentro de una región cuadrada central y el sensor clasifica ese encuadre.

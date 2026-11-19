@@ -1,0 +1,324 @@
+jorge@RaspPi5-JB:~/Downloads/despliegue_pi $ python3 probar_camara.py --model camara/network.rpk --labels labels.txt   --expected bottle --output camara/bottle.json
+Coloca un objeto en el centro de la imagen y mantenlo durante la captura.
+[2:33:00.094007023] [4409]  INFO Camera camera_manager.cpp:340 libcamera v0.7.2+rpt20260817
+[2:33:00.103032890] [4413]  INFO RPI pisp.cpp:725 libpisp version v1.7.0 07-08-2026 (09:22:13)
+[2:33:00.111031684] [4413]  INFO IPAProxy ipa_proxy.cpp:184 Using tuning file /usr/share/libcamera/ipa/rpi/pisp/imx500.json
+[2:33:00.118371830] [4413]  INFO Camera camera_manager.cpp:223 Adding camera '/base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a' for pipeline handler rpi/pisp
+[2:33:00.118414812] [4413]  INFO RPI pisp.cpp:1186 Registered camera /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a to CFE device /dev/media3 and ISP device /dev/media1 using PiSP variant BCM2712_D0
+[2:33:00.134339418] [4413]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc30
+[2:33:00.134404474] [4413]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc12
+Network Firmware Upload: 0.00bytes [00:00, ?bytes/s][2:33:00.135934270] [4409]  INFO Camera camera.cpp:1216 configuring streams: (0) 640x480-XBGR8888/sRGB (1) 2028x1520-RGGB_PISP_COMP1/RAW
+[2:33:00.136176881] [4413]  INFO RPI pisp.cpp:1502 Sensor: /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a - Selected sensor format: 2028x1520-SRGGB10_1X10/RAW - Selected CFE format: 2028x1520-PC1R/RAW
+Network Firmware Upload: 100%|█████████| 2.59M/2.59M [00:02<00:00, 1.08Mbytes/s]
+{
+  "model": "camara/network.rpk",
+  "labels": [
+    "bottle",
+    "banana",
+    "book"
+  ],
+  "input_size": [
+    160,
+    160
+  ],
+  "expected": "bottle",
+  "sample_count": 60,
+  "predicted_counts": {
+    "book": 51,
+    "bottle": 7,
+    "banana": 2
+  },
+  "expected_fraction": 0.11666666666666667,
+  "outputs_per_s": 21.037633116514968,
+  "rate_clock": "sensor_timestamp",
+  "dnn_kpi_samples": 60,
+  "dnn_ms_median": 3.561,
+  "dnn_ms_p95": 3.99295
+}
+jorge@RaspPi5-JB:~/Downloads/despliegue_pi $ python3 probar_camara.py --model camara/network.rpk --labels labels.txt   --expected bottle --output camara/bottle.json
+Coloca un objeto en el centro de la imagen y mantenlo durante la captura.
+[2:33:50.549084877] [4512]  INFO Camera camera_manager.cpp:340 libcamera v0.7.2+rpt20260817
+[2:33:50.557985857] [4516]  INFO RPI pisp.cpp:725 libpisp version v1.7.0 07-08-2026 (09:22:13)
+[2:33:50.565661726] [4516]  INFO IPAProxy ipa_proxy.cpp:184 Using tuning file /usr/share/libcamera/ipa/rpi/pisp/imx500.json
+[2:33:50.572741669] [4516]  INFO Camera camera_manager.cpp:223 Adding camera '/base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a' for pipeline handler rpi/pisp
+[2:33:50.572805706] [4516]  INFO RPI pisp.cpp:1186 Registered camera /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a to CFE device /dev/media3 and ISP device /dev/media1 using PiSP variant BCM2712_D0
+[2:33:50.589621259] [4516]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc30
+[2:33:50.589679796] [4516]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc12
+Network Firmware Upload: 0.00bytes [00:00, ?bytes/s][2:33:50.591284703] [4512]  INFO Camera camera.cpp:1216 configuring streams: (0) 640x480-XBGR8888/sRGB (1) 2028x1520-RGGB_PISP_COMP1/RAW
+[2:33:50.591486610] [4516]  INFO RPI pisp.cpp:1502 Sensor: /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a - Selected sensor format: 2028x1520-SRGGB10_1X10/RAW - Selected CFE format: 2028x1520-PC1R/RAW
+Network Firmware Upload: 100%|█████████| 2.59M/2.59M [00:02<00:00, 1.08Mbytes/s]
+{
+  "model": "camara/network.rpk",
+  "labels": [
+    "bottle",
+    "banana",
+    "book"
+  ],
+  "input_size": [
+    160,
+    160
+  ],
+  "expected": "bottle",
+  "sample_count": 60,
+  "predicted_counts": {
+    "banana": 57,
+    "book": 3
+  },
+  "expected_fraction": 0.0,
+  "outputs_per_s": 30.027309583597553,
+  "rate_clock": "sensor_timestamp",
+  "dnn_kpi_samples": 60,
+  "dnn_ms_median": 3.553,
+  "dnn_ms_p95": 3.9974
+}
+jorge@RaspPi5-JB:~/Downloads/despliegue_pi $ python3 probar_camara.py --model camara/network.rpk --labels labels.txt   --expected bottle --output camara/bottle.json
+Coloca un objeto en el centro de la imagen y mantenlo durante la captura.
+[2:34:09.818685482] [4616]  INFO Camera camera_manager.cpp:340 libcamera v0.7.2+rpt20260817
+[2:34:09.827793407] [4620]  INFO RPI pisp.cpp:725 libpisp version v1.7.0 07-08-2026 (09:22:13)
+[2:34:09.835777369] [4620]  INFO IPAProxy ipa_proxy.cpp:184 Using tuning file /usr/share/libcamera/ipa/rpi/pisp/imx500.json
+[2:34:09.843197627] [4620]  INFO Camera camera_manager.cpp:223 Adding camera '/base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a' for pipeline handler rpi/pisp
+[2:34:09.843242276] [4620]  INFO RPI pisp.cpp:1186 Registered camera /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a to CFE device /dev/media3 and ISP device /dev/media1 using PiSP variant BCM2712_D0
+[2:34:09.859450014] [4620]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc30
+[2:34:09.859513255] [4620]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc12
+Network Firmware Upload: 0.00bytes [00:00, ?bytes/s][2:34:09.861007051] [4616]  INFO Camera camera.cpp:1216 configuring streams: (0) 640x480-XBGR8888/sRGB (1) 2028x1520-RGGB_PISP_COMP1/RAW
+[2:34:09.861239792] [4620]  INFO RPI pisp.cpp:1502 Sensor: /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a - Selected sensor format: 2028x1520-SRGGB10_1X10/RAW - Selected CFE format: 2028x1520-PC1R/RAW
+Network Firmware Upload: 100%|█████████| 2.59M/2.59M [00:02<00:00, 1.08Mbytes/s]
+{
+  "model": "camara/network.rpk",
+  "labels": [
+    "bottle",
+    "banana",
+    "book"
+  ],
+  "input_size": [
+    160,
+    160
+  ],
+  "expected": "bottle",
+  "sample_count": 60,
+  "predicted_counts": {
+    "book": 40,
+    "bottle": 20
+  },
+  "expected_fraction": 0.3333333333333333,
+  "outputs_per_s": 21.57318226742921,
+  "rate_clock": "sensor_timestamp",
+  "dnn_kpi_samples": 60,
+  "dnn_ms_median": 3.496,
+  "dnn_ms_p95": 3.9665999999999997
+}
+jorge@RaspPi5-JB:~/Downloads/despliegue_pi $ python3 probar_camara.py --model camara/network.rpk --labels labels.txt   --expected bottle --output camara/bottle.json
+Coloca un objeto en el centro de la imagen y mantenlo durante la captura.
+[2:34:28.475379012] [4716]  INFO Camera camera_manager.cpp:340 libcamera v0.7.2+rpt20260817
+[2:34:28.484458566] [4720]  INFO RPI pisp.cpp:725 libpisp version v1.7.0 07-08-2026 (09:22:13)
+[2:34:28.492447381] [4720]  INFO IPAProxy ipa_proxy.cpp:184 Using tuning file /usr/share/libcamera/ipa/rpi/pisp/imx500.json
+[2:34:28.499743732] [4720]  INFO Camera camera_manager.cpp:223 Adding camera '/base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a' for pipeline handler rpi/pisp
+[2:34:28.499792232] [4720]  INFO RPI pisp.cpp:1186 Registered camera /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a to CFE device /dev/media3 and ISP device /dev/media1 using PiSP variant BCM2712_D0
+[2:34:28.516162027] [4720]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc30
+[2:34:28.516219582] [4720]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc12
+Network Firmware Upload: 0.00bytes [00:00, ?bytes/s][2:34:28.517692008] [4716]  INFO Camera camera.cpp:1216 configuring streams: (0) 640x480-XBGR8888/sRGB (1) 2028x1520-RGGB_PISP_COMP1/RAW
+[2:34:28.517899897] [4720]  INFO RPI pisp.cpp:1502 Sensor: /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a - Selected sensor format: 2028x1520-SRGGB10_1X10/RAW - Selected CFE format: 2028x1520-PC1R/RAW
+Network Firmware Upload: 100%|█████████| 2.59M/2.59M [00:02<00:00, 1.08Mbytes/s]
+{
+  "model": "camara/network.rpk",
+  "labels": [
+    "bottle",
+    "banana",
+    "book"
+  ],
+  "input_size": [
+    160,
+    160
+  ],
+  "expected": "bottle",
+  "sample_count": 60,
+  "predicted_counts": {
+    "book": 44,
+    "bottle": 16
+  },
+  "expected_fraction": 0.26666666666666666,
+  "outputs_per_s": 30.027309583597553,
+  "rate_clock": "sensor_timestamp",
+  "dnn_kpi_samples": 60,
+  "dnn_ms_median": 3.548,
+  "dnn_ms_p95": 3.9914
+}
+jorge@RaspPi5-JB:~/Downloads/despliegue_pi $ python3 probar_camara.py --model camara/network.rpk --labels labels.txt   --expected bottle --output camara/bottle.json
+Coloca un objeto en el centro de la imagen y mantenlo durante la captura.
+[2:34:51.100086343] [4821]  INFO Camera camera_manager.cpp:340 libcamera v0.7.2+rpt20260817
+[2:34:51.109057824] [4825]  INFO RPI pisp.cpp:725 libpisp version v1.7.0 07-08-2026 (09:22:13)
+[2:34:51.116897528] [4825]  INFO IPAProxy ipa_proxy.cpp:184 Using tuning file /usr/share/libcamera/ipa/rpi/pisp/imx500.json
+[2:34:51.124065027] [4825]  INFO Camera camera_manager.cpp:223 Adding camera '/base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a' for pipeline handler rpi/pisp
+[2:34:51.124129120] [4825]  INFO RPI pisp.cpp:1186 Registered camera /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a to CFE device /dev/media3 and ISP device /dev/media1 using PiSP variant BCM2712_D0
+[2:34:51.140841101] [4825]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc30
+[2:34:51.140904527] [4825]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc12
+Network Firmware Upload: 0.00bytes [00:00, ?bytes/s][2:34:51.142384786] [4821]  INFO Camera camera.cpp:1216 configuring streams: (0) 640x480-XBGR8888/sRGB (1) 2028x1520-RGGB_PISP_COMP1/RAW
+[2:34:51.142609156] [4825]  INFO RPI pisp.cpp:1502 Sensor: /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a - Selected sensor format: 2028x1520-SRGGB10_1X10/RAW - Selected CFE format: 2028x1520-PC1R/RAW
+Network Firmware Upload: 100%|█████████| 2.59M/2.59M [00:02<00:00, 1.08Mbytes/s]
+{
+  "model": "camara/network.rpk",
+  "labels": [
+    "bottle",
+    "banana",
+    "book"
+  ],
+  "input_size": [
+    160,
+    160
+  ],
+  "expected": "bottle",
+  "sample_count": 60,
+  "predicted_counts": {
+    "book": 26,
+    "banana": 29,
+    "bottle": 5
+  },
+  "expected_fraction": 0.08333333333333333,
+  "outputs_per_s": 30.02729430158295,
+  "rate_clock": "sensor_timestamp",
+  "dnn_kpi_samples": 60,
+  "dnn_ms_median": 3.5149999999999997,
+  "dnn_ms_p95": 3.95575
+}
+jorge@RaspPi5-JB:~/Downloads/despliegue_pi $ python3 probar_camara.py --model camara/network.rpk --labels labels.txt   --expected bottle --output camara/bottle.json
+Coloca un objeto en el centro de la imagen y mantenlo durante la captura.
+[2:35:05.347969700] [4924]  INFO Camera camera_manager.cpp:340 libcamera v0.7.2+rpt20260817
+[2:35:05.356845663] [4928]  INFO RPI pisp.cpp:725 libpisp version v1.7.0 07-08-2026 (09:22:13)
+[2:35:05.364626126] [4928]  INFO IPAProxy ipa_proxy.cpp:184 Using tuning file /usr/share/libcamera/ipa/rpi/pisp/imx500.json
+[2:35:05.371750459] [4928]  INFO Camera camera_manager.cpp:223 Adding camera '/base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a' for pipeline handler rpi/pisp
+[2:35:05.371808756] [4928]  INFO RPI pisp.cpp:1186 Registered camera /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a to CFE device /dev/media3 and ISP device /dev/media1 using PiSP variant BCM2712_D0
+[2:35:05.387910774] [4928]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc30
+[2:35:05.387977996] [4928]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc12
+Network Firmware Upload: 0.00bytes [00:00, ?bytes/s][2:35:05.389905922] [4924]  INFO Camera camera.cpp:1216 configuring streams: (0) 640x480-XBGR8888/sRGB (1) 2028x1520-RGGB_PISP_COMP1/RAW
+[2:35:05.390164404] [4928]  INFO RPI pisp.cpp:1502 Sensor: /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a - Selected sensor format: 2028x1520-SRGGB10_1X10/RAW - Selected CFE format: 2028x1520-PC1R/RAW
+Network Firmware Upload: 100%|█████████| 2.59M/2.59M [00:02<00:00, 1.08Mbytes/s]
+{
+  "model": "camara/network.rpk",
+  "labels": [
+    "bottle",
+    "banana",
+    "book"
+  ],
+  "input_size": [
+    160,
+    160
+  ],
+  "expected": "bottle",
+  "sample_count": 60,
+  "predicted_counts": {
+    "banana": 42,
+    "book": 18
+  },
+  "expected_fraction": 0.0,
+  "outputs_per_s": 30.02729430158295,
+  "rate_clock": "sensor_timestamp",
+  "dnn_kpi_samples": 60,
+  "dnn_ms_median": 3.5225,
+  "dnn_ms_p95": 3.98215
+}
+jorge@RaspPi5-JB:~/Downloads/despliegue_pi $ python3 probar_camara.py --model camara/network.rpk --labels labels.txt   --expected bottle --output camara/bottle.json
+Coloca un objeto en el centro de la imagen y mantenlo durante la captura.
+[2:35:17.739653412] [5028]  INFO Camera camera_manager.cpp:340 libcamera v0.7.2+rpt20260817
+[2:35:17.748483394] [5032]  INFO RPI pisp.cpp:725 libpisp version v1.7.0 07-08-2026 (09:22:13)
+[2:35:17.757277672] [5032]  INFO IPAProxy ipa_proxy.cpp:184 Using tuning file /usr/share/libcamera/ipa/rpi/pisp/imx500.json
+[2:35:17.764338431] [5032]  INFO Camera camera_manager.cpp:223 Adding camera '/base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a' for pipeline handler rpi/pisp
+[2:35:17.764366635] [5032]  INFO RPI pisp.cpp:1186 Registered camera /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a to CFE device /dev/media3 and ISP device /dev/media1 using PiSP variant BCM2712_D0
+[2:35:17.779335468] [5032]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc30
+[2:35:17.779389561] [5032]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc12
+Network Firmware Upload: 0.00bytes [00:00, ?bytes/s][2:35:17.780938302] [5028]  INFO Camera camera.cpp:1216 configuring streams: (0) 640x480-XBGR8888/sRGB (1) 2028x1520-RGGB_PISP_COMP1/RAW
+[2:35:17.781167487] [5032]  INFO RPI pisp.cpp:1502 Sensor: /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a - Selected sensor format: 2028x1520-SRGGB10_1X10/RAW - Selected CFE format: 2028x1520-PC1R/RAW
+Network Firmware Upload: 100%|█████████| 2.59M/2.59M [00:02<00:00, 1.08Mbytes/s]
+{
+  "model": "camara/network.rpk",
+  "labels": [
+    "bottle",
+    "banana",
+    "book"
+  ],
+  "input_size": [
+    160,
+    160
+  ],
+  "expected": "bottle",
+  "sample_count": 60,
+  "predicted_counts": {
+    "banana": 60
+  },
+  "expected_fraction": 0.0,
+  "outputs_per_s": 30.02729430158295,
+  "rate_clock": "sensor_timestamp",
+  "dnn_kpi_samples": 60,
+  "dnn_ms_median": 3.55,
+  "dnn_ms_p95": 3.9907500000000002
+}
+jorge@RaspPi5-JB:~/Downloads/despliegue_pi $ python3 probar_camara.py --model camara/network.rpk --labels labels.txt   --expected bottle --output camara/bottle.json
+Coloca un objeto en el centro de la imagen y mantenlo durante la captura.
+[2:35:33.766934489] [5132]  INFO Camera camera_manager.cpp:340 libcamera v0.7.2+rpt20260817
+[2:35:33.775756711] [5136]  INFO RPI pisp.cpp:725 libpisp version v1.7.0 07-08-2026 (09:22:13)
+[2:35:33.783404823] [5136]  INFO IPAProxy ipa_proxy.cpp:184 Using tuning file /usr/share/libcamera/ipa/rpi/pisp/imx500.json
+[2:35:33.790487934] [5136]  INFO Camera camera_manager.cpp:223 Adding camera '/base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a' for pipeline handler rpi/pisp
+[2:35:33.790531730] [5136]  INFO RPI pisp.cpp:1186 Registered camera /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a to CFE device /dev/media3 and ISP device /dev/media1 using PiSP variant BCM2712_D0
+[2:35:33.807667694] [5136]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc30
+[2:35:33.807744268] [5136]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc12
+Network Firmware Upload: 0.00bytes [00:00, ?bytes/s][2:35:33.809213676] [5132]  INFO Camera camera.cpp:1216 configuring streams: (0) 640x480-XBGR8888/sRGB (1) 2028x1520-RGGB_PISP_COMP1/RAW
+[2:35:33.809433805] [5136]  INFO RPI pisp.cpp:1502 Sensor: /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a - Selected sensor format: 2028x1520-SRGGB10_1X10/RAW - Selected CFE format: 2028x1520-PC1R/RAW
+Network Firmware Upload: 100%|█████████| 2.59M/2.59M [00:02<00:00, 1.08Mbytes/s]
+{
+  "model": "camara/network.rpk",
+  "labels": [
+    "bottle",
+    "banana",
+    "book"
+  ],
+  "input_size": [
+    160,
+    160
+  ],
+  "expected": "bottle",
+  "sample_count": 60,
+  "predicted_counts": {
+    "book": 60
+  },
+  "expected_fraction": 0.0,
+  "outputs_per_s": 30.027309583597553,
+  "rate_clock": "sensor_timestamp",
+  "dnn_kpi_samples": 60,
+  "dnn_ms_median": 3.525,
+  "dnn_ms_p95": 3.9694
+}
+jorge@RaspPi5-JB:~/Downloads/despliegue_pi $ python3 probar_camara.py --model camara/network.rpk --labels labels.txt   --expected bottle --output camara/bottle.json
+Coloca un objeto en el centro de la imagen y mantenlo durante la captura.
+[2:35:56.889076527] [5237]  INFO Camera camera_manager.cpp:340 libcamera v0.7.2+rpt20260817
+[2:35:56.897986157] [5241]  INFO RPI pisp.cpp:725 libpisp version v1.7.0 07-08-2026 (09:22:13)
+[2:35:56.905678658] [5241]  INFO IPAProxy ipa_proxy.cpp:184 Using tuning file /usr/share/libcamera/ipa/rpi/pisp/imx500.json
+[2:35:56.912731048] [5241]  INFO Camera camera_manager.cpp:223 Adding camera '/base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a' for pipeline handler rpi/pisp
+[2:35:56.912770029] [5241]  INFO RPI pisp.cpp:1186 Registered camera /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a to CFE device /dev/media3 and ISP device /dev/media1 using PiSP variant BCM2712_D0
+[2:35:56.929262419] [5241]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc30
+[2:35:56.929320327] [5241]  WARN V4L2 v4l2_pixelformat.cpp:346 Unsupported V4L2 pixel format Nc12
+Network Firmware Upload: 0.00bytes [00:00, ?bytes/s][2:35:56.930772179] [5237]  INFO Camera camera.cpp:1216 configuring streams: (0) 640x480-XBGR8888/sRGB (1) 2028x1520-RGGB_PISP_COMP1/RAW
+[2:35:56.930986827] [5241]  INFO RPI pisp.cpp:1502 Sensor: /base/axi/pcie@1000120000/rp1/i2c@80000/imx500@1a - Selected sensor format: 2028x1520-SRGGB10_1X10/RAW - Selected CFE format: 2028x1520-PC1R/RAW
+Network Firmware Upload: 100%|█████████| 2.59M/2.59M [00:02<00:00, 1.08Mbytes/s]
+{
+  "model": "camara/network.rpk",
+  "labels": [
+    "bottle",
+    "banana",
+    "book"
+  ],
+  "input_size": [
+    160,
+    160
+  ],
+  "expected": "bottle",
+  "sample_count": 60,
+  "predicted_counts": {
+    "bottle": 54,
+    "book": 6
+  },
+  "expected_fraction": 0.9,
+  "outputs_per_s": 30.02727901958389,
+  "rate_clock": "sensor_timestamp",
+  "dnn_kpi_samples": 60,
+  "dnn_ms_median": 3.5445,
+  "dnn_ms_p95": 3.98215
+}

@@ -36,7 +36,7 @@ python3 evaluar_test_sensor.py --model modelo_test/network.rpk \
   --test test --output resultado_sensor_01.json
 ```
 
-La cámara debe estar conectada. El evaluador introduce los tensores por software y registra cada resultado cuando su contador de fotograma coincide con el de la inyección. Si se pierde ese fotograma, vuelve a enviar la misma muestra hasta un máximo de tres intentos. El tiempo de espera predeterminado es de 15 segundos por intento. El arranque permite hasta 180 segundos para cargar el firmware.
+La cámara debe estar conectada. El evaluador introduce los tensores por software y registra cada resultado cuando su contador de fotograma coincide con el de la inyección. Si se pierde ese fotograma, vuelve a enviar la misma muestra hasta un máximo de diez intentos (`--retries`). Si el driver rechaza el tensor con un error transitorio (`Errno 11` o `Errno 121`), repite el envío hasta 50 veces (`--io-retries`). La documentación de inyección de Sony describe estos errores y señala que aumentan con la tasa de fotogramas y el número de inyecciones. La tasa predeterminada es de 12 fotogramas por segundo (`--frame-rate`, mínimo 5). El JSON registra los reintentos de cada muestra. El tiempo de espera predeterminado es de 15 segundos por intento. El arranque permite hasta 180 segundos para cargar el firmware.
 
 Verás una línea por imagen con la etiqueta real y la predicción. Al terminar se generan dos archivos.
 

@@ -7,6 +7,7 @@ import json
 import os
 import platform
 import time
+from concurrent.futures import TimeoutError as FutureTimeoutError
 from datetime import datetime, timezone
 from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
@@ -72,27 +73,55 @@ def load_test(folder):
     return dataset, payloads
 
 
-def inject_and_wait(camera, picam, payload, class_count, timeout, retries):
-    # Estas dos APIs privadas son las usadas por el ejemplo oficial de Picamera2.
+# Errores transitorios del driver al fijar el tensor: EAGAIN (11) y EREMOTEIO (121).
+# La documentación de inyección de Sony los describe y su biblioteca reintenta la inyección.
+TRANSIENT_INJECTION_ERRNOS = {11, 121}
+
+
+def set_input_with_retry(camera, payload, io_retries, pause=0.05):
+    """Fija el tensor de entrada y devuelve el fotograma de comparación y los reintentos de E/S."""
+    # Esta API privada es la usada por el ejemplo oficial de Picamera2.
     set_input = camera._IMX500__set_input_tensor
-    parse_info = camera._IMX500__get_output_tensor_info
-    started = time.monotonic()
-    last_reason = "sin resultado asociado a la inyección"
-    for attempt in range(1, retries + 1):
+    for io_attempt in range(1, io_retries + 1):
         descriptor = os.memfd_create("coco_test_tensor", os.MFD_CLOEXEC)
         try:
             with os.fdopen(os.dup(descriptor), "wb") as tensor_file:
                 tensor_file.write(payload)
-            set_input(descriptor)
-            raw_target = camera.get_injection_cmp_frm()
+            try:
+                set_input(descriptor)
+            except RuntimeError as error:
+                # Picamera2 encadena el OSError original en __cause__.
+                cause = error.__cause__
+                if isinstance(cause, OSError) and cause.errno in TRANSIENT_INJECTION_ERRNOS and io_attempt < io_retries:
+                    time.sleep(pause)
+                    continue
+                raise
+            return camera.get_injection_cmp_frm(), io_attempt - 1
         finally:
             os.close(descriptor)
+    raise RuntimeError("No se pudo fijar el tensor de entrada")
+
+
+def inject_and_wait(camera, picam, payload, class_count, timeout, retries, io_retries):
+    # Esta API privada es la usada por el ejemplo oficial de Picamera2.
+    parse_info = camera._IMX500__get_output_tensor_info
+    started = time.monotonic()
+    last_reason = "sin resultado asociado a la inyección"
+    io_retry_count = 0
+    for attempt in range(1, retries + 1):
+        # get_injection_cmp_frm devuelve 0 si falla la lectura (Picamera2 lo indica en consola).
+        raw_target, used_io_retries = set_input_with_retry(camera, payload, io_retries)
+        io_retry_count += used_io_retries
         if not isinstance(raw_target, int) or raw_target < 0:
             raise RuntimeError(f"Contador de inyección inesperado: {raw_target!r}")
         target = raw_target & 0xFF
         deadline = time.monotonic() + timeout
         while time.monotonic() < deadline:
-            metadata = picam.capture_metadata(wait=max(0.001, deadline - time.monotonic()))
+            try:
+                metadata = picam.capture_metadata(wait=max(0.001, deadline - time.monotonic()))
+            except (TimeoutError, FutureTimeoutError):
+                last_reason = f"no llegó ningún fotograma en {timeout} s"
+                break
             info = metadata.get("CnnOutputTensorInfo")
             if info is None:
                 continue
@@ -113,6 +142,7 @@ def inject_and_wait(camera, picam, payload, class_count, timeout, retries):
             return {
                 "logits": logits.tolist(), "predicted_index": int(logits.argmax()),
                 "injection_frame": target, "output_frame": int(frame_count), "attempts": attempt,
+                "io_retries": io_retry_count,
                 "dnn_ms": float(kpi[0]) if kpi is not None else None,
                 "injection_to_result_ms": 1000 * (time.monotonic() - started),
             }
@@ -143,7 +173,7 @@ def evaluate(args, dataset, payloads, report):
         report["picamera2_version"] = None
     with Picamera2(camera.camera_num) as picam:
         configuration = picam.create_preview_configuration(
-            main={"size": (640, 480)}, controls={"FrameRate": 12, "CnnEnableInputTensor": True},
+            main={"size": (640, 480)}, controls={"FrameRate": args.frame_rate, "CnnEnableInputTensor": True},
             buffer_count=30, queue=False,
         )
         camera.show_network_fw_progress_bar()
@@ -152,7 +182,9 @@ def evaluate(args, dataset, payloads, report):
             # Espera la primera captura para que el firmware esté preparado.
             picam.capture_metadata(wait=args.startup_timeout)
             for index, (sample, payload) in enumerate(zip(dataset["samples"], payloads), start=1):
-                result = inject_and_wait(camera, picam, payload, len(dataset["labels"]), args.timeout, args.retries)
+                result = inject_and_wait(
+                    camera, picam, payload, len(dataset["labels"]), args.timeout, args.retries, args.io_retries
+                )
                 result.update({"image_id": sample["image_id"], "expected_index": sample["expected_index"]})
                 report["samples"].append(result)
                 write_report(args.output, report)
@@ -197,10 +229,14 @@ def main():
     parser.add_argument("--output", type=Path, default=Path("resultado_sensor.json"))
     parser.add_argument("--timeout", type=float, default=15, help="Segundos por intento de inyección")
     parser.add_argument("--startup-timeout", type=float, default=180)
-    parser.add_argument("--retries", type=int, default=3)
+    parser.add_argument("--retries", type=int, default=10, help="Reinyecciones por fotograma perdido")
+    parser.add_argument("--io-retries", type=int, default=50, help="Reintentos por error transitorio al fijar el tensor")
+    parser.add_argument("--frame-rate", type=float, default=12, help="Sony indica un mínimo de 5 para la inyección")
     args = parser.parse_args()
-    if min(args.timeout, args.startup_timeout) <= 0 or args.retries < 1:
+    if min(args.timeout, args.startup_timeout) <= 0 or min(args.retries, args.io_retries) < 1:
         parser.error("Los tiempos y el número de intentos deben ser positivos")
+    if args.frame_rate < 5:
+        parser.error("La inyección requiere --frame-rate de al menos 5")
     if not args.model.is_file():
         parser.error(f"No existe {args.model}")
     dataset, payloads = load_test(args.test)
@@ -213,6 +249,8 @@ def main():
         "model_sha256": file_sha256(args.model), "test_sha256": file_sha256(args.test / "test.json"),
         "model": str(args.model), "python": platform.python_version(), "platform": platform.platform(),
         "labels": dataset["labels"], "expected_sample_count": len(payloads), "samples": [],
+        "settings": {"frame_rate": args.frame_rate, "timeout_s": args.timeout,
+                     "retries": args.retries, "io_retries": args.io_retries},
     }
     write_report(args.output, report)
     try:

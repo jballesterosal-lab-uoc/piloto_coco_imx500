@@ -1,0 +1,46 @@
+{
+  "status": "failed",
+  "created_utc": "2026-11-19T18:38:53.845040+00:00",
+  "model_sha256": "a1285f7e860bdf7e58548ec3b26c5a880bfa511bf909755c104b12ab62c17e31",
+  "test_sha256": "6a4ab0b9e5e0816aa5158c4c3d8cee7834f5387302f1af425f3521e340738996",
+  "model": "modelo_test/network.rpk",
+  "python": "3.13.5",
+  "platform": "Linux-6.18.50+rpt-rpi-2712-aarch64-with-glibc2.41",
+  "labels": [
+    "bottle",
+    "banana",
+    "book"
+  ],
+  "expected_sample_count": 45,
+  "samples": [],
+  "settings": {
+    "frame_rate": 12,
+    "timeout_s": 15,
+    "retries": 10,
+    "io_retries": 50
+  },
+  "sensor_input_config": {
+    "width": 160,
+    "height": 160,
+    "input_format": "RGB",
+    "norm_val": [
+      0,
+      0,
+      0
+    ],
+    "norm_shift": [
+      4,
+      4,
+      4
+    ],
+    "dtype": "unsigned",
+    "div_val": [
+      1024,
+      1024,
+      1024
+    ],
+    "div_shift": 6
+  },
+  "picamera2_version": "0.3.39",
+  "error": "TimeoutError: "
+}
